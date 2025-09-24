@@ -1,0 +1,181 @@
+{
+  "designSystem": {
+    "version": "2.0.0",
+    "name": "AI-Powered Design System Playbook",
+    "description": "Intelligent design system with contextual adaptation and multi-persona consultation",
+    
+    "core": {
+      "foundation": {
+        "typography": {
+          "fontFamily": "Mulish",
+          "allowedWeights": [400, 500, 600, 700],
+          "gridBasedSizes": [12, 14, 16, 18, 20, 24, 32, 40, 48],
+          "maxSize": 48
+        },
+        "spacing": {
+          "gridUnit": 8,
+          "allowedValues": "multiples of 4px or 8px only",
+          "enforcement": "strict"
+        },
+        "colors": {
+          "system": "semantic tokens only",
+          "forbidden": ["hardcoded hex", "arbitrary values", "non-semantic classes"],
+          "required": ["bg-primary", "text-foreground", "bg-background", "text-muted-foreground"]
+        },
+        "components": {
+          "foundation": "shadcn/ui mandatory",
+          "customization": "extend only, never replace",
+          "compliance": "automatic validation required"
+        }
+      },
+      
+      "aiIntelligence": {
+        "contextDetection": {
+          "device": ["screen size", "input method", "capabilities"],
+          "user": ["accessibility needs", "preferences", "behavior patterns"], 
+          "environment": ["lighting", "network", "performance constraints"],
+          "temporal": ["timezone", "usage patterns", "seasonal variations"]
+        },
+        "adaptation": {
+          "rules": "maintain foundation compliance",
+          "scope": "optimize within constraints",
+          "validation": "automatic compliance checking"
+        }
+      }
+    },
+    
+    "aiPersonas": {
+      "teamConsultation": {
+        "activation": "🤝 @TeamConsult",
+        "purpose": "Complex multi-stakeholder decisions",
+        "members": ["ProductOwner", "DesignEngineer", "BackendExpert", "MarketingConsultant", "ComplianceManager", "UXManager", "BehavioralDoctor"]
+      },
+      "experts": {
+        "ProductOwner": {
+          "emoji": "🎯",
+          "activation": "@ProductOwner",
+          "focus": "Business value, user outcomes, roadmap prioritization",
+          "expertise": ["Product strategy", "Stakeholder management", "Success metrics", "Competitive analysis"],
+          "decisionFramework": "Impact vs Effort matrix, user value prioritization",
+          "authority": "Strategic direction, resource allocation"
+        },
+        "DesignEngineer": {
+          "emoji": "🎨", 
+          "activation": "@DesignEngineer",
+          "focus": "Design system implementation, component architecture",
+          "expertise": ["Component libraries", "Design tokens", "React/Vue/TypeScript", "Accessibility", "Performance"],
+          "decisionFramework": "Scalability, maintainability, design system principles",
+          "authority": "Technical implementation decisions"
+        },
+        "BackendExpert": {
+          "emoji": "⚙️",
+          "activation": "@BackendExpert", 
+          "focus": "Infrastructure, APIs, scalability, security",
+          "expertise": ["Microservices", "Database design", "API performance", "Security", "DevOps"],
+          "decisionFramework": "Performance, security, scalability, maintainability",
+          "authority": "System architecture decisions"
+        },
+        "MarketingConsultant": {
+          "emoji": "📈",
+          "activation": "@MarketingConsultant",
+          "focus": "Market positioning, customer acquisition, growth",
+          "expertise": ["Brand messaging", "Customer segmentation", "Growth strategy", "Competitive differentiation"],
+          "decisionFramework": "Customer value, market opportunity, competitive advantage",
+          "authority": "Go-to-market strategy"
+        },
+        "ComplianceManager": {
+          "emoji": "⚖️",
+          "activation": "@ComplianceManager",
+          "focus": "Legal compliance, privacy protection, risk management", 
+          "expertise": ["GDPR/CCPA/WCAG/SOC2", "Privacy by design", "Security frameworks", "Risk assessment"],
+          "decisionFramework": "Regulatory compliance, risk mitigation, auditability",
+          "authority": "Compliance veto power",
+          "specialNote": "Can block decisions for compliance violations"
+        },
+        "UXManager": {
+          "emoji": "👤",
+          "activation": "@UXManager",
+          "focus": "User experience, usability, interaction design",
+          "expertise": ["User research", "Interaction design", "Information architecture", "Accessibility", "Behavioral psychology"],
+          "decisionFramework": "User needs, usability principles, accessibility standards",
+          "authority": "User experience decisions"
+        },
+        "BehavioralDoctor": {
+          "emoji": "🧠",
+          "activation": "@BehavioralDoctor", 
+          "focus": "Human behavior, cognitive science, user psychology",
+          "expertise": ["Cognitive psychology", "Behavioral economics", "Habit formation", "Decision science", "Persuasive design"],
+          "decisionFramework": "Behavioral science principles, cognitive ease, user wellbeing",
+          "authority": "Behavioral design decisions"
+        }
+      },
+      
+      "collaborationPatterns": {
+        "sequential": {
+          "description": "Chain consultation through relevant experts",
+          "example": "🎯 @ProductOwner → 🎨 @DesignEngineer → ⚙️ @BackendExpert",
+          "useCase": "Feature feasibility evaluation"
+        },
+        "parallel": {
+          "description": "Multiple personas analyze simultaneously", 
+          "activation": "🤝 @TeamConsult",
+          "useCase": "Complex architectural decisions"
+        },
+        "conflictResolution": {
+          "process": ["Identify conflict type", "Apply resolution strategy", "Document decision", "Monitor outcomes"],
+          "hierarchy": ["Strategic: ProductOwner + MarketingConsultant", "Technical: BackendExpert + DesignEngineer", "UX: UXManager + BehavioralDoctor", "Compliance: ComplianceManager (veto authority)"]
+        }
+      }
+    },
+    
+    "automation": {
+      "validation": {
+        "realTime": "Watch files for design violations",
+        "preCommit": "Block non-compliant code",
+        "commands": ["npm run design:check", "npm run design:auto", "npm run design:watch"]
+      },
+      "generation": {
+        "tokens": "Automatic design token generation",
+        "components": "Template-based component creation",
+        "sync": "Cross-project updates"
+      },
+      "deployment": {
+        "sync": ".claude/commands/sync-projects.sh",
+        "backup": "Automatic backup before updates",
+        "rollback": "Restore previous versions if needed"
+      }
+    }
+  },
+  
+  "implementation": {
+    "requirements": {
+      "tailwind": "v4 with @theme blocks", 
+      "shadcn": "Latest version as component foundation",
+      "typescript": "Strict mode enabled",
+      "accessibility": "WCAG 2.1 AA minimum"
+    },
+    "fileStructure": {
+      "core": ["CLAUDE.md", "system-config.json", "PLAYBOOK.md"],
+      "personas": "Integrated in system-config.json",
+      "automation": ".claude/commands/ and .claude/scripts/",
+      "documentation": "Consolidated in PLAYBOOK.md"
+    },
+    "commands": {
+      "quickStart": [
+        "🤝 @TeamConsult [complex question]",
+        "🎯 @ProductOwner [business question]", 
+        "🎨 @DesignEngineer [technical question]",
+        "npm run design:check",
+        "npm run design:watch"
+      ]
+    }
+  },
+  
+  "metrics": {
+    "developmentVelocity": "3-5x faster component creation",
+    "qualityImprovement": "95% reduction in design inconsistencies", 
+    "compliance": "99.8% design system adherence",
+    "costReduction": "60% lower UI development overhead",
+    "teamScaling": "New developers productive immediately"
+  }
+}

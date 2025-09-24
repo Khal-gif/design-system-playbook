@@ -1,0 +1,114 @@
+{
+  "version": "2.0.0",
+  "designSystem": {
+    "name": "Design System Law Book",
+    "version": "2.0.0"
+  },
+  "branding": {
+    "brandColors": {
+      "primary": {
+        "name": "Primary",
+        "hex": "#3B82F6",
+        "role": "primary-actions",
+        "usage": "buttons, links, focus states, primary CTAs"
+      },
+      "secondary": {
+        "name": "Secondary", 
+        "hex": "#10B981",
+        "role": "secondary-actions",
+        "usage": "success states, secondary CTAs, confirmations"
+      },
+      "accent": {
+        "name": "Accent",
+        "hex": "#F59E0B", 
+        "role": "highlights",
+        "usage": "badges, notifications, highlights, warnings"
+      },
+      "neutral": {
+        "name": "Neutral",
+        "hex": "#6B7280",
+        "role": "supporting",
+        "usage": "text, borders, backgrounds, subtle elements"
+      }
+    },
+    "colorPalette": {
+      "temperature": "balanced",
+      "contrast": "wcag-aa",
+      "personality": "professional-creative"
+    }
+  },
+  "typography": {
+    "fontFamily": "Mulish",
+    "baseSize": 16,
+    "scaleRatio": "8-point-grid",
+    "weights": [400, 500, 600, 700],
+    "hierarchy": {
+      "display": "48px",
+      "h1": "40px", 
+      "h2": "32px",
+      "h3": "24px",
+      "h4": "20px",
+      "h5": "18px",
+      "body": "16px",
+      "small": "14px",
+      "caption": "12px"
+    }
+  },
+  "spacing": {
+    "system": "8-point-grid",
+    "baseUnit": 4,
+    "scale": [4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 96, 128, 160, 192, 224, 256]
+  },
+  "layout": {
+    "maxWidth": "1440px",
+    "containerPadding": {
+      "mobile": "16px",
+      "tablet": "24px", 
+      "desktop": "32px"
+    },
+    "gridColumns": 12,
+    "gridGap": "24px"
+  },
+  "components": {
+    "borderRadius": {
+      "sm": "4px",
+      "base": "8px", 
+      "lg": "12px",
+      "xl": "16px"
+    },
+    "shadows": {
+      "sm": "0 1px 2px rgba(0,0,0,0.05)",
+      "base": "0 4px 6px rgba(0,0,0,0.07)",
+      "lg": "0 10px 15px rgba(0,0,0,0.1)",
+      "xl": "0 25px 50px rgba(0,0,0,0.25)"
+    }
+  },
+  "project": {
+    "name": "Design System Playbook",
+    "type": "design-system-template",
+    "framework": "universal"
+  },
+  "creative": {
+    "designPrinciples": [
+      "hierarchy-first",
+      "semantic-color-usage", 
+      "consistent-spacing",
+      "accessible-contrast",
+      "scalable-typography"
+    ],
+    "colorCombinations": {
+      "recommended": [
+        ["primary", "neutral"],
+        ["primary", "secondary", "neutral"],
+        ["primary", "accent", "neutral"],
+        ["primary", "secondary", "accent", "neutral"]
+      ]
+    },
+    "visualGuidance": {
+      "emphasis": "Use primary for main actions, secondary for supporting actions",
+      "hierarchy": "Larger elements use darker shades, smaller use lighter",
+      "interaction": "Hover states use 10% opacity overlay",
+      "accessibility": "Maintain 4.5:1 contrast for text, 3:1 for UI elements"
+    }
+  }
+}

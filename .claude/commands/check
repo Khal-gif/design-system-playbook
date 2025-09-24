@@ -1,0 +1,4 @@
+#!/bin/bash
+# Quick validation shortcut
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+"$SCRIPT_DIR/../scripts/design-check.sh" "${1:-.}"

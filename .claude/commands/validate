@@ -1,0 +1,4 @@
+#!/bin/bash
+# AI validation shortcut
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+"$SCRIPT_DIR/../scripts/ai-validation-helper.sh" "${1:-index.html}"

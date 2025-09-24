@@ -1,0 +1,272 @@
+{
+  "version": "1.0.0",
+  "projectName": "Design System Playbook",
+  "designSystem": {
+    "name": "Design System Law Book",
+    "version": "1.0.0",
+    "strict": true,
+    "enforceCompliance": true
+  },
+  
+  "ai": {
+    "behavior": {
+      "strictDesignSystemEnforcement": true,
+      "suggestCompliantAlternatives": true,
+      "preventViolations": true,
+      "autoValidateChanges": true,
+      "contextAwareAssistance": true,
+      "priority": "design_system_compliance_first",
+      "autoCorrect": true,
+      "explainViolations": true,
+      "validateBeforeCommit": true
+    },
+    
+    "codeGeneration": {
+      "alwaysUseMulishFont": true,
+      "enforce8PointGrid": true,
+      "useSemanticColorsOnly": true,
+      "followTypographyHierarchy": true,
+      "validateSpacingValues": true,
+      "includeDesignSystemClasses": true,
+      "addComplianceComments": false,
+      "generateWithTemplates": true
+    },
+    
+    "validation": {
+      "runAutomaticChecks": true,
+      "suggestValidationScripts": true,
+      "flagViolationsImmediately": true,
+      "provideFixSuggestions": true
+    },
+    
+    "suggestions": {
+      "preferComponentTemplates": true,
+      "suggestDesignSystemPatterns": true,
+      "recommendBestPractices": true,
+      "offerWorkflowGuidance": true,
+      "includeAccessibilityTips": true
+    },
+    
+    "quickCommands": {
+      "validate": ".claude/scripts/design-check.sh src/",
+      "aiValidate": ".claude/scripts/ai-validation-helper.sh {file}",
+      "generateTokens": ".claude/commands/generate-tokens.sh",
+      "newComponent": ".claude/commands/new-component.sh {name} {type}",
+      "deploy": ".claude/commands/deploy-to-project.sh {path}",
+      "workflow": ".claude/commands/dev-workflow.sh"
+    },
+    
+    "autoSuggest": {
+      "onViolation": "suggest_compliant_alternative",
+      "onColorUse": "recommend_semantic_token",
+      "onSpacing": "suggest_8point_grid_value",
+      "onTypography": "enforce_mulish_and_weights",
+      "onComponent": "use_template_if_available"
+    },
+    
+    "responsePatterns": {
+      "onViolation": "I notice you're using {violation}. In our design system, we use {alternative} instead. This ensures {benefit}.",
+      "onSuccess": "Perfect! That follows our design system rules.",
+      "onGeneration": "I've generated this component following our design system with {compliance_points}.",
+      "onValidation": "Let me validate this against our design system rules...",
+      "onFix": "Here's the corrected version that complies with our design system:"
+    },
+    
+    "validationTriggers": {
+      "onClassName": "validate_immediately",
+      "onColorKeyword": ["white", "black", "gray-", "blue-", "red-", "green-", "yellow-", "purple-", "pink-", "indigo-"],
+      "onSpacingPattern": ["[", "px]", "-5", "-7", "-9", "-11", "-13", "-15"],
+      "onFontPattern": ["thin", "light", "extrabold", "black", "6xl", "7xl", "8xl", "9xl"],
+      "onArbitraryValue": ["[", "]"]
+    }
+  },
+  
+  "typography": {
+    "fontFamily": "Mulish",
+    "allowedWeights": [400, 500, 600, 700],
+    "allowedSizes": {
+      "xs": 12,
+      "sm": 14, 
+      "base": 16,
+      "lg": 18,
+      "xl": 20,
+      "2xl": 24,
+      "3xl": 32,
+      "4xl": 40,
+      "5xl": 48
+    },
+    "maxSize": 48,
+    "forbiddenWeights": [100, 200, 300, 800, 900],
+    "forbiddenSizes": ["6xl", "7xl", "8xl", "9xl"],
+    "allowArbitrarySizes": false,
+    "enforceHierarchy": true
+  },
+  
+  "spacing": {
+    "system": "8-point-grid",
+    "allowedValues": [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 56, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256],
+    "allowArbitraryValues": false,
+    "divisibilityRule": "divisibleBy4Or8",
+    "enforceGridCompliance": true,
+    "validatePadding": true,
+    "validateMargins": true,
+    "validateGaps": true
+  },
+  
+  "colors": {
+    "system": "semantic-tokens",
+    "allowHardcodedColors": false,
+    "preferredFormat": "oklch",
+    "enforceSemantic": true,
+    "allowedBackgrounds": ["background", "card", "muted", "popover", "primary", "secondary", "destructive", "accent"],
+    "allowedTextColors": ["foreground", "muted-foreground", "card-foreground", "popover-foreground", "primary-foreground", "secondary-foreground", "destructive-foreground"],
+    "forbiddenColors": ["white", "black", "gray-*", "blue-*", "red-*", "green-*"],
+    "validateContrast": true,
+    "follow60-30-10Rule": true
+  },
+  
+  "components": {
+    "buttons": {
+      "allowedHeights": [32, 40, 48, 56],
+      "allowedPadding": [16, 24, 32, 48],
+      "requiredFontWeights": {
+        "primary": "semibold",
+        "secondary": "medium",
+        "outline": "medium"
+      },
+      "enforceHeightRestrictions": true
+    },
+    
+    "forms": {
+      "standardInputHeight": 40,
+      "labelTypography": "text-sm font-medium",
+      "helperTypography": "text-xs font-normal",
+      "enforceStandardSizing": true
+    },
+    
+    "cards": {
+      "titleTypography": "text-xl font-semibold",
+      "descriptionTypography": "text-sm font-normal",
+      "standardPadding": 24,
+      "allowedPadding": [16, 24, 32],
+      "enforceStructure": true
+    }
+  },
+  
+  "validation": {
+    "enabled": true,
+    "scripts": {
+      "designCheck": ".claude/scripts/design-check.sh",
+      "typographyCheck": ".claude/scripts/typography-check.sh", 
+      "spacingCheck": ".claude/scripts/spacing-check.sh",
+      "colorCheck": ".claude/scripts/color-check.sh",
+      "aiValidationHelper": ".claude/scripts/ai-validation-helper.sh"
+    },
+    "runOnSave": true,
+    "runOnCommit": true,
+    "exitOnViolations": true,
+    "showViolationDetails": true,
+    "preferAIFeedback": true
+  },
+  
+  "workflows": {
+    "componentCreation": ".claude/workflows/component-creation.md",
+    "designReview": ".claude/workflows/design-review.md",
+    "useTemplates": true,
+    "validateAfterCreation": true,
+    "followStrictProcess": true
+  },
+  
+  "templates": {
+    "enabled": true,
+    "location": ".claude/templates/",
+    "available": {
+      "button": "button-template.tsx",
+      "card": "card-template.tsx", 
+      "form": "form-template.tsx",
+      "page": "page-template.tsx"
+    },
+    "useByDefault": true,
+    "validateCompliance": true
+  },
+  
+  "commands": {
+    "newComponent": ".claude/commands/new-component.sh",
+    "setupProject": ".claude/commands/setup-project.sh",
+    "devWorkflow": ".claude/commands/dev-workflow.sh",
+    "designValidation": ".claude/scripts/design-check.sh"
+  },
+  
+  "accessibility": {
+    "enforceMinimumFontSizes": true,
+    "minimumBodyTextSize": 16,
+    "minimumHelperTextSize": 14, 
+    "minimumLabelSize": 12,
+    "validateContrast": true,
+    "minimumTouchTarget": 44,
+    "requireAltText": true,
+    "enforceSemanticHTML": true
+  },
+  
+  "performance": {
+    "fontLoading": {
+      "strategy": "swap",
+      "preloadCriticalFonts": true,
+      "loadOnlyRequiredWeights": true,
+      "requiredWeights": ["400", "500", "600", "700"]
+    },
+    
+    "css": {
+      "purgeUnusedClasses": true,
+      "optimizeForProduction": true,
+      "minimizeBundleSize": true
+    }
+  },
+  
+  "integration": {
+    "preCommitHooks": {
+      "enabled": true,
+      "runValidation": true,
+      "preventInvalidCommits": true
+    },
+    
+    "cicd": {
+      "runDesignSystemTests": true,
+      "failOnViolations": true,
+      "generateReports": true
+    },
+    
+    "packageJson": {
+      "addValidationScripts": true,
+      "scriptsPrefix": "design"
+    }
+  },
+  
+  "development": {
+    "showViolationWarnings": true,
+    "suggestFixes": true,
+    "enableRuntimeValidation": true,
+    "logComplianceChecks": false,
+    "enableStrictMode": true
+  },
+  
+  "documentation": {
+    "generateComponentDocs": true,
+    "includeDesignSystemRules": true,
+    "showUsageExamples": true,
+    "validateDocExamples": true,
+    "updateOnChange": true
+  },
+  
+  "meta": {
+    "lastUpdated": "2024-01-18",
+    "configVersion": "1.0.0",
+    "compatibleWith": ["tailwindcss@4.0+", "next.js@14+", "react@18+"],
+    "requiredPackages": {
+      "tailwindcss": "@next",
+      "note": "Tailwind v4 required - install with: npm install tailwindcss@next"
+    },
+    "maintainer": "Design System Team",
+    "documentation": ".claude/OVERVIEW.md"
+  }
+}
